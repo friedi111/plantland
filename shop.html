@@ -4,10 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>Shop - PlantLand</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
 </head>
 <body>
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    🚚 Free shipping on all orders over $60!
+  </div>
+
   <!-- Navigation -->
   <nav class="navbar">
     <div class="logo"><a href="index.html">PlantLand.</a></div>
@@ -31,55 +36,65 @@
   <section class="page-content" style="max-width: 1200px;">
     <div class="plants-grid">
       <article class="plant-card">
-        <div class="plant-image-wrapper">
-          <img src="assets/monstera.png" alt="Monstera Deliciosa" class="plant-image" />
-        </div>
+        <a href="products/monstera.html" class="plant-card-link">
+          <div class="plant-image-wrapper">
+            <img src="assets/monstera.png" alt="Monstera Deliciosa" class="plant-image" />
+          </div>
+        </a>
         <div class="plant-info">
-          <h3>Monstera Deliciosa</h3>
+          <a href="products/monstera.html"><h3>Monstera Deliciosa</h3></a>
           <p class="price">$45</p>
           <button class="add-to-cart" data-id="1" data-name="Monstera Deliciosa" data-price="45"
             data-image="assets/monstera.png">Add to Cart</button>
         </div>
       </article>
       <article class="plant-card alt-color">
-        <div class="plant-image-wrapper">
-          <img src="assets/snake.png" alt="Snake Plant" class="plant-image" />
-        </div>
+        <a href="products/snake-plant.html" class="plant-card-link">
+          <div class="plant-image-wrapper">
+            <img src="assets/snake.png" alt="Snake Plant" class="plant-image" />
+          </div>
+        </a>
         <div class="plant-info">
-          <h3>Snake Plant</h3>
+          <a href="products/snake-plant.html"><h3>Snake Plant</h3></a>
           <p class="price">$30</p>
           <button class="add-to-cart" data-id="2" data-name="Snake Plant" data-price="30"
             data-image="assets/snake.png">Add to Cart</button>
         </div>
       </article>
       <article class="plant-card">
-        <div class="plant-image-wrapper">
-          <img src="assets/ficus.png" alt="Ficus Lyrata" class="plant-image" />
-        </div>
+        <a href="products/ficus.html" class="plant-card-link">
+          <div class="plant-image-wrapper">
+            <img src="assets/ficus.png" alt="Ficus Lyrata" class="plant-image" />
+          </div>
+        </a>
         <div class="plant-info">
-          <h3>Ficus Lyrata</h3>
+          <a href="products/ficus.html"><h3>Ficus Lyrata</h3></a>
           <p class="price">$60</p>
           <button class="add-to-cart" data-id="3" data-name="Ficus Lyrata" data-price="60"
             data-image="assets/ficus.png">Add to Cart</button>
         </div>
       </article>
       <article class="plant-card alt-color">
-        <div class="plant-image-wrapper">
-          <img src="assets/pothos.png" alt="Golden Pothos" class="plant-image" />
-        </div>
+        <a href="products/pothos.html" class="plant-card-link">
+          <div class="plant-image-wrapper">
+            <img src="assets/pothos.png" alt="Golden Pothos" class="plant-image" />
+          </div>
+        </a>
         <div class="plant-info">
-          <h3>Golden Pothos</h3>
+          <a href="products/pothos.html"><h3>Golden Pothos</h3></a>
           <p class="price">$25</p>
           <button class="add-to-cart" data-id="4" data-name="Golden Pothos" data-price="25"
             data-image="assets/pothos.png">Add to Cart</button>
         </div>
       </article>
       <article class="plant-card">
-        <div class="plant-image-wrapper">
-          <img src="assets/zz.png" alt="ZZ Plant" class="plant-image" />
-        </div>
+        <a href="products/zz-plant.html" class="plant-card-link">
+          <div class="plant-image-wrapper">
+            <img src="assets/zz.png" alt="ZZ Plant" class="plant-image" />
+          </div>
+        </a>
         <div class="plant-info">
-          <h3>ZZ Plant</h3>
+          <a href="products/zz-plant.html"><h3>ZZ Plant</h3></a>
           <p class="price">$35</p>
           <button class="add-to-cart" data-id="5" data-name="ZZ Plant" data-price="35"
             data-image="assets/zz.png">Add to Cart</button>
@@ -96,10 +111,10 @@
         <p>Cool plants for hip people.</p>
       </div>
       <div class="footer-links">
-        <a href="faq.html">FAQ</a>
-        <a href="shipping.html">Shipping</a>
-        <a href="returns.html">Returns</a>
-        <a href="contact.html">Contact</a>
+        <a href="info/faq.html">FAQ</a>
+        <a href="info/shipping.html">Shipping</a>
+        <a href="info/returns.html">Returns</a>
+        <a href="info/contact.html">Contact</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -114,6 +129,9 @@
       <h2>Your Cart</h2>
       <button class="close-cart" id="close-cart" aria-label="Close cart">✖</button>
     </div>
+    <div class="shipping-progress-container" id="shipping-progress-container">
+      <!-- Shipping progress will be injected here by JS -->
+    </div>
     <div class="cart-items" id="cart-items">
       <p class="empty-cart-msg">Your cart is feeling a little empty.</p>
     </div>
@@ -126,6 +144,6 @@
     </div>
   </aside>
 
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

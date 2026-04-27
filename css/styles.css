@@ -88,6 +88,62 @@ ul {
   transform: translateY(0);
 }
 
+/* Announcement Bar */
+.announcement-bar {
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  text-align: center;
+  padding: 0.75rem 5%;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--color-primary);
+  text-transform: uppercase;
+}
+
+/* Shipping Progress Bar in Cart */
+.shipping-progress-container {
+  padding: 1.5rem;
+  background-color: var(--color-muted);
+  border-bottom: 3px solid var(--color-foreground);
+}
+
+.shipping-progress-text {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--color-foreground);
+  display: block;
+}
+
+.shipping-progress-text span {
+  color: var(--color-accent);
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 12px;
+  background-color: white;
+  border: 2px solid var(--color-foreground);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--color-secondary);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0%;
+}
+
+.shipping-unlocked {
+  color: var(--color-primary);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 /* Navigation */
 .navbar {
   display: flex;
@@ -300,6 +356,75 @@ ul {
   transform: rotate(15deg);
 }
 
+/* Care Section */
+.care-section {
+  padding: 2rem 5% 10rem;
+  background-color: var(--color-background);
+}
+
+.care-section .section-header h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+  color: var(--color-foreground);
+  font-family: var(--font-heading);
+}
+
+.care-section .section-header p {
+  font-size: 1.25rem;
+  color: var(--color-foreground);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--font-body);
+}
+
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.care-card {
+  background-color: #fff;
+  border: 4px solid var(--color-foreground);
+  padding: 2.5rem;
+  box-shadow: 8px 8px 0 var(--color-foreground);
+  transition: all var(--transition-normal);
+}
+
+.care-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 var(--color-primary);
+}
+
+.care-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.care-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.care-card p {
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 768px) {
+  .care-section {
+    padding: 5rem 5%;
+  }
+  
+  .care-card {
+    padding: 1.5rem;
+  }
+}
+
 /* Features Section */
 .features-section {
   padding: 8rem 5%;
@@ -321,6 +446,10 @@ ul {
 .section-header.center h2 {
   color: var(--color-foreground);
   margin-bottom: 1rem;
+}
+
+.features-section .section-header.center h2 {
+  color: var(--color-background);
 }
 
 .section-header.center p {
@@ -367,14 +496,20 @@ ul {
 
 /* Featured Plants (Shop) */
 .featured-plants {
-  padding: 8rem 5%;
+  padding: 8rem 5% 2rem;
   background-color: var(--color-background);
 }
 
 .plants-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
   gap: 4rem;
+  justify-content: center;
+}
+
+/* Force 3 columns for the "Top Picks" section on index page */
+.featured-plants .plants-grid {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .plant-card {
@@ -432,8 +567,8 @@ ul {
 .add-to-cart {
   width: 100%;
   padding: 1rem;
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+  background-color: var(--color-accent);
+  color: var(--color-on-primary);
   border: 2px solid var(--color-foreground);
   font-family: var(--font-body);
   font-weight: 700;
@@ -444,7 +579,7 @@ ul {
 
 .add-to-cart:hover {
   background-color: var(--color-foreground);
-  color: var(--color-background);
+  color: var(--color-on-primary);
 }
 
 .alt-color .add-to-cart:hover {
@@ -565,11 +700,41 @@ ul {
   .feature-card.offset:hover {
     transform: translateY(-10px);
   }
+
+  .featured-plants .plants-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-plants .plants-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
   .nav-links {
     display: none;
+  }
+
+  .navbar {
+    padding: 0.75rem 4%;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .nav-actions {
+    gap: 0.5rem;
+  }
+
+  /* Make both nav buttons compact and equal height */
+  .cart-toggle,
+  .cta-button.nav-cta {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    box-shadow: 2px 2px 0 var(--color-foreground);
   }
 
   .hero-title {
@@ -863,4 +1028,213 @@ ul {
 .contact-form-wrapper textarea {
   min-height: 150px;
   resize: vertical;
+}
+
+/* Product Detail Page */
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 70vh;
+}
+
+.product-gallery {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.product-image-main {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-muted);
+  border-right: 4px solid var(--color-foreground);
+  overflow: hidden;
+}
+
+.product-image-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.product-image-main:hover img {
+  transform: scale(1.03);
+}
+
+.product-info-detail {
+  padding: 3rem 4rem 5rem;
+}
+
+.back-link {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  border: 2px solid var(--color-foreground);
+  padding: 0.5rem 1rem;
+  transition: all var(--transition-fast);
+  box-shadow: 3px 3px 0 var(--color-foreground);
+}
+
+.back-link:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--color-foreground);
+}
+
+.product-info-detail h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+}
+
+.product-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  margin-bottom: 1.5rem;
+}
+
+.product-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.badge {
+  background-color: var(--color-border);
+  color: var(--color-foreground);
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 2px solid var(--color-foreground);
+}
+
+.product-description {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  color: var(--color-foreground);
+}
+
+.product-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.detail-item {
+  border: 2px solid var(--color-border);
+  padding: 1.25rem;
+  background-color: #fff;
+}
+
+.detail-item h4 {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-primary);
+  margin-bottom: 0.35rem;
+}
+
+.detail-item p {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.product-add-to-cart {
+  font-size: 1.25rem;
+  padding: 1.25rem 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 6px 6px 0 var(--color-foreground);
+  transition: all var(--transition-fast);
+}
+
+.product-add-to-cart:hover {
+  box-shadow: 3px 3px 0 var(--color-foreground);
+  transform: translate(3px, 3px);
+}
+
+.care-tips {
+  border: 3px solid var(--color-foreground);
+  background-color: #fff;
+  padding: 2.5rem;
+  box-shadow: 8px 8px 0 var(--color-secondary);
+}
+
+.care-tips h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+}
+
+.care-tips ul {
+  list-style: none;
+  padding: 0;
+}
+
+.care-tips li {
+  padding: 0.75rem 0;
+  border-bottom: 2px dashed var(--color-border);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.care-tips li:last-child {
+  border-bottom: none;
+}
+
+/* Plant card clickable link wrapper */
+.plant-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .product-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .product-gallery {
+    position: relative;
+    height: 50vh;
+  }
+
+  .product-image-main {
+    border-right: none;
+    border-bottom: 4px solid var(--color-foreground);
+  }
+
+  .product-info-detail {
+    padding: 2.5rem 5%;
+  }
+}
+
+@media (max-width: 640px) {
+  .product-info-detail h1 {
+    font-size: 2.25rem;
+  }
+
+  .product-price {
+    font-size: 1.5rem;
+  }
+
+  .product-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-info-detail {
+    padding: 2rem 4%;
+  }
+
+  .care-tips {
+    padding: 1.5rem;
+  }
 }

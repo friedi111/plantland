@@ -4,23 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>Contact - PlantLand</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" type="image/png" href="../assets/favicon.png" />
 </head>
 <body>
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    🚚 Free shipping on all orders over $60!
+  </div>
+
   <!-- Navigation -->
   <nav class="navbar">
-    <div class="logo"><a href="index.html">PlantLand.</a></div>
+    <div class="logo"><a href="../index.html">PlantLand.</a></div>
     <ul class="nav-links">
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="index.html#features">Why Us</a></li>
-      <li><a href="index.html#care">Plant Care</a></li>
+      <li><a href="../shop.html">Shop</a></li>
+      <li><a href="../index.html#features">Why Us</a></li>
+      <li><a href="../index.html#care">Plant Care</a></li>
     </ul>
     <div class="nav-actions">
       <button class="cart-toggle" id="cart-toggle" aria-label="Open cart">
         🛒 <span class="cart-count" id="cart-count">0</span>
       </button>
-      <a href="shop.html" class="cta-button nav-cta">Get Started</a>
+      <a href="../shop.html" class="cta-button nav-cta">Get Started</a>
     </div>
   </nav>
 
@@ -76,6 +81,9 @@
       <h2>Your Cart</h2>
       <button class="close-cart" id="close-cart" aria-label="Close cart">✖</button>
     </div>
+    <div class="shipping-progress-container" id="shipping-progress-container">
+      <!-- Shipping progress will be injected here by JS -->
+    </div>
     <div class="cart-items" id="cart-items">
       <p class="empty-cart-msg">Your cart is feeling a little empty.</p>
     </div>
@@ -88,6 +96,6 @@
     </div>
   </aside>
 
-  <script src="script.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 </html>

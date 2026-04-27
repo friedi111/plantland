@@ -1,42 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Returns - PlantLand</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <title>FAQ - PlantLand</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" type="image/png" href="../assets/favicon.png" />
 </head>
+
 <body>
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    🚚 Free shipping on all orders over $60!
+  </div>
+
   <!-- Navigation -->
   <nav class="navbar">
-    <div class="logo"><a href="index.html">PlantLand.</a></div>
+    <div class="logo"><a href="../index.html">PlantLand.</a></div>
     <ul class="nav-links">
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="index.html#features">Why Us</a></li>
-      <li><a href="index.html#care">Plant Care</a></li>
+      <li><a href="../shop.html">Shop</a></li>
+      <li><a href="../index.html#features">Why Us</a></li>
+      <li><a href="../index.html#care">Plant Care</a></li>
     </ul>
     <div class="nav-actions">
       <button class="cart-toggle" id="cart-toggle" aria-label="Open cart">
         🛒 <span class="cart-count" id="cart-count">0</span>
       </button>
-      <a href="shop.html" class="cta-button nav-cta">Get Started</a>
+      <a href="../shop.html" class="cta-button nav-cta">Get Started</a>
     </div>
   </nav>
 
   <header class="page-header">
-    <h1>Returns & Refunds</h1>
+    <h1>Frequently Asked Questions</h1>
   </header>
 
   <section class="page-content">
-    <h2>Our Guarantee</h2>
-    <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
-    
-    <h2>Return Process</h2>
-    <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-    
-    <h2>Exchanges</h2>
-    <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</p>
+    <div class="faq-item">
+      <h3>How do you ship live plants?</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante
+        dapibus diam. Sed nisi.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if my plant arrives damaged?</h3>
+      <p>Pellentesque ipsum. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in
+        vulputate at, tempus viverra turpis.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do you offer plant care advice?</h3>
+      <p>Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti
+        sociosqu ad litora torquent.</p>
+    </div>
   </section>
 
   <!-- Footer -->
@@ -65,6 +79,9 @@
       <h2>Your Cart</h2>
       <button class="close-cart" id="close-cart" aria-label="Close cart">✖</button>
     </div>
+    <div class="shipping-progress-container" id="shipping-progress-container">
+      <!-- Shipping progress will be injected here by JS -->
+    </div>
     <div class="cart-items" id="cart-items">
       <p class="empty-cart-msg">Your cart is feeling a little empty.</p>
     </div>
@@ -77,6 +94,7 @@
     </div>
   </aside>
 
-  <script src="script.js"></script>
+  <script src="../js/script.js"></script>
 </body>
+
 </html>

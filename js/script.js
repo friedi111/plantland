@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, observerOptions);
 
   // Add animate class to elements
-  const animateElements = document.querySelectorAll('.feature-card, .plant-card, .section-header');
+  const animateElements = document.querySelectorAll('.feature-card, .plant-card, .section-header, .care-card');
   animateElements.forEach(el => {
     el.classList.add('animate-on-scroll');
     observer.observe(el);
@@ -87,6 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let total = 0;
     let count = 0;
 
+    // Detect if we are in a subdirectory to adjust paths
+    const isSubPage = window.location.pathname.includes('/products/') || window.location.pathname.includes('/info/');
+    const baseDir = isSubPage ? '../' : '';
+
     if (cart.length === 0) {
       cartItemsContainer.innerHTML = '<p class="empty-cart-msg">Your cart is feeling a little empty.</p>';
     } else {
@@ -94,10 +98,18 @@ document.addEventListener('DOMContentLoaded', () => {
         total += item.price * item.quantity;
         count += item.quantity;
 
+        // Ensure image path is correct for the current page level
+        let displayImage = item.image;
+        if (baseDir && !displayImage.startsWith('http') && !displayImage.startsWith('../')) {
+          displayImage = baseDir + displayImage;
+        } else if (!baseDir && displayImage.startsWith('../')) {
+          displayImage = displayImage.replace('../', '');
+        }
+
         const itemEl = document.createElement('div');
         itemEl.className = 'cart-item';
         itemEl.innerHTML = `
-          <img src="${item.image}" alt="${item.name}">
+          <img src="${displayImage}" alt="${item.name}">
           <div class="cart-item-info">
             <h4>${item.name}</h4>
             <p>$${item.price}</p>
@@ -115,6 +127,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cartCountEl.textContent = count;
     cartTotalPriceEl.textContent = `$${total.toFixed(2)}`;
+
+    // Update Shipping Progress
+    const shippingThreshold = 60;
+    const shippingProgressContainer = document.getElementById('shipping-progress-container');
+    
+    if (shippingProgressContainer) {
+      if (total === 0) {
+        shippingProgressContainer.style.display = 'none';
+      } else {
+        shippingProgressContainer.style.display = 'block';
+        const remaining = shippingThreshold - total;
+        const progress = Math.min((total / shippingThreshold) * 100, 100);
+        
+        if (remaining > 0) {
+          shippingProgressContainer.innerHTML = `
+            <span class="shipping-progress-text">You're <span>$${remaining.toFixed(2)}</span> away from <strong>Free Shipping</strong>!</span>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: ${progress}%"></div>
+            </div>
+          `;
+        } else {
+          shippingProgressContainer.innerHTML = `
+            <span class="shipping-unlocked">🎉 Free Shipping Unlocked!</span>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 100%"></div>
+            </div>
+          `;
+        }
+      }
+    }
 
     // Add event listeners to newly rendered buttons
     document.querySelectorAll('.qty-btn.minus').forEach(btn => {

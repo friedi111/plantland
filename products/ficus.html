@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Ficus Lyrata - PlantLand</title>
+  <meta name="description" content="The Fiddle Leaf Fig is a bold, sculptural showpiece for design lovers. Shop Ficus Lyrata at PlantLand." />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+</head>
+
+<body>
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    🚚 Free shipping on all orders over $60!
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo"><a href="../index.html">PlantLand.</a></div>
+    <ul class="nav-links">
+      <li><a href="../shop.html">Shop</a></li>
+      <li><a href="../index.html#features">Why Us</a></li>
+      <li><a href="../index.html#care">Plant Care</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="cart-toggle" id="cart-toggle" aria-label="Open cart">
+        🛒 <span class="cart-count" id="cart-count">0</span>
+      </button>
+      <a href="../shop.html" class="cta-button nav-cta">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- Product Detail -->
+  <section class="product-detail">
+    <div class="product-gallery">
+      <div class="product-image-main">
+        <img src="../assets/ficus.png" alt="Ficus Lyrata" />
+      </div>
+    </div>
+
+    <div class="product-info-detail">
+      <a href="../shop.html" class="back-link">← Back to Shop</a>
+      <h1>Ficus Lyrata</h1>
+      <p class="product-price">$60</p>
+
+      <div class="product-badges">
+        <span class="badge">🎻 Fiddle Leaf</span>
+        <span class="badge">💧 Regular Water</span>
+        <span class="badge">☀️ Bright Light</span>
+      </div>
+
+      <p class="product-description">
+        The Ficus Lyrata — better known as the Fiddle Leaf Fig — is the darling of interior designers worldwide. With
+        its large, violin-shaped leaves and tall sculptural form, it commands attention in any room. Originally from
+        West African tropical rainforests, this tree brings drama and elegance to modern spaces.
+      </p>
+
+      <div class="product-details-grid">
+        <div class="detail-item">
+          <h4>Size</h4>
+          <p>Large — 60–90 cm tall</p>
+        </div>
+        <div class="detail-item">
+          <h4>Difficulty</h4>
+          <p>Moderate — Needs consistency</p>
+        </div>
+        <div class="detail-item">
+          <h4>Growth</h4>
+          <p>Moderate — with the right conditions</p>
+        </div>
+        <div class="detail-item">
+          <h4>Pet Safe?</h4>
+          <p>No — Toxic to cats & dogs</p>
+        </div>
+      </div>
+
+      <button class="add-to-cart product-add-to-cart" data-id="3" data-name="Ficus Lyrata" data-price="60"
+        data-image="assets/ficus.png">Add to Cart — $60</button>
+
+      <div class="care-tips">
+        <h3>Care Tips</h3>
+        <ul>
+          <li><strong>Light:</strong> Bright, indirect light is essential. Rotate weekly for even growth.</li>
+          <li><strong>Water:</strong> Water when the top 3 cm of soil is dry. Consistent schedule is key.</li>
+          <li><strong>Humidity:</strong> Prefers moderate to high humidity. Wipe leaves to remove dust.</li>
+          <li><strong>Temperature:</strong> 18–25°C. Avoid sudden temperature changes and drafts.</li>
+          <li><strong>Feeding:</strong> Monthly liquid fertilizer during the growing season (spring–autumn).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h2>PlantLand.</h2>
+        <p>Cool plants for hip people.</p>
+      </div>
+      <div class="footer-links">
+        <a href="../info/faq.html">FAQ</a>
+        <a href="../info/shipping.html">Shipping</a>
+        <a href="../info/returns.html">Returns</a>
+        <a href="../info/contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 PlantLand. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="close-cart" id="close-cart" aria-label="Close cart">✖</button>
+    </div>
+    <div class="shipping-progress-container" id="shipping-progress-container">
+      <!-- Shipping progress will be injected here by JS -->
+    </div>
+    <div class="cart-items" id="cart-items">
+      <p class="empty-cart-msg">Your cart is feeling a little empty.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cart-total-price">$0.00</span>
+      </div>
+      <button class="btn btn-primary checkout-btn" id="checkout-btn">Checkout</button>
+    </div>
+  </aside>
+
+  <script src="../js/script.js"></script>
+</body>
+
+</html>
