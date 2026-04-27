@@ -11,10 +11,17 @@
   --color-muted: #E8F0F1;
   --color-border: #BBF7D0;
   --color-destructive: #DC2626;
+<<<<<<< HEAD
   
   --font-heading: 'Lora', serif;
   --font-body: 'Raleway', sans-serif;
   
+=======
+
+  --font-heading: 'Lora', serif;
+  --font-body: 'Raleway', sans-serif;
+
+>>>>>>> 5bd2ab0 (Update website)
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-spring: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -34,7 +41,16 @@ body {
   overflow-x: hidden;
 }
 
+<<<<<<< HEAD
 h1, h2, h3, h4, h5, h6 {
+=======
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+>>>>>>> 5bd2ab0 (Update website)
   font-family: var(--font-heading);
   color: var(--color-foreground);
   line-height: 1.2;
@@ -51,6 +67,7 @@ ul {
 
 /* Animations */
 @keyframes slideUpFade {
+<<<<<<< HEAD
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
@@ -58,6 +75,27 @@ ul {
 @keyframes spinSlow {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+=======
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+>>>>>>> 5bd2ab0 (Update website)
 }
 
 .animate-on-scroll {
@@ -126,7 +164,12 @@ ul {
   background-color: var(--color-accent);
   color: var(--color-on-primary);
   padding: 0.75rem 1.5rem;
+<<<<<<< HEAD
   border-radius: 0; /* Blocky */
+=======
+  border-radius: 0;
+  /* Blocky */
+>>>>>>> 5bd2ab0 (Update website)
   font-weight: 700;
   border: 2px solid var(--color-foreground);
   box-shadow: 4px 4px 0 var(--color-foreground);
@@ -535,12 +578,24 @@ ul {
     grid-template-columns: 1fr;
     text-align: center;
   }
+<<<<<<< HEAD
   .hero-actions {
     justify-content: center;
   }
   .feature-card.offset {
     transform: none;
   }
+=======
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .feature-card.offset {
+    transform: none;
+  }
+
+>>>>>>> 5bd2ab0 (Update website)
   .feature-card.offset:hover {
     transform: translateY(-10px);
   }
@@ -550,16 +605,32 @@ ul {
   .nav-links {
     display: none;
   }
+<<<<<<< HEAD
   .hero-title {
     font-size: 3rem;
   }
   .newsletter-form {
     flex-direction: column;
   }
+=======
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+>>>>>>> 5bd2ab0 (Update website)
   .newsletter-form input {
     border-right: 3px solid var(--color-foreground);
     border-bottom: none;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
   .footer-content {
     flex-direction: column;
     text-align: center;
@@ -569,7 +640,14 @@ ul {
 /* Cart Sidebar & Overlay */
 .cart-overlay {
   position: fixed;
+<<<<<<< HEAD
   top: 0; left: 0; width: 100%; height: 100%;
+=======
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+>>>>>>> 5bd2ab0 (Update website)
   background: rgba(20, 83, 45, 0.4);
   backdrop-filter: blur(4px);
   z-index: 999;
@@ -577,6 +655,10 @@ ul {
   pointer-events: none;
   transition: opacity var(--transition-normal);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
 .cart-overlay.active {
   opacity: 1;
   pointer-events: all;
@@ -584,8 +666,15 @@ ul {
 
 .cart-sidebar {
   position: fixed;
+<<<<<<< HEAD
   top: 0; right: -450px;
   width: 100%; max-width: 400px;
+=======
+  top: 0;
+  right: -450px;
+  width: 100%;
+  max-width: 400px;
+>>>>>>> 5bd2ab0 (Update website)
   height: 100%;
   background-color: var(--color-background);
   border-left: 4px solid var(--color-foreground);
@@ -593,8 +682,14 @@ ul {
   display: flex;
   flex-direction: column;
   transition: right var(--transition-spring);
+<<<<<<< HEAD
   box-shadow: -10px 0 0 rgba(0,0,0,0.1);
 }
+=======
+  box-shadow: -10px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+>>>>>>> 5bd2ab0 (Update website)
 .cart-sidebar.open {
   right: 0;
 }
@@ -608,10 +703,18 @@ ul {
   background-color: var(--color-primary);
   color: var(--color-on-primary);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
 .cart-header h2 {
   color: var(--color-on-primary);
   margin: 0;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
 .close-cart {
   background: none;
   border: none;
@@ -620,6 +723,10 @@ ul {
   cursor: pointer;
   transition: transform var(--transition-fast);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
 .close-cart:hover {
   transform: scale(1.1) rotate(90deg);
 }
@@ -632,6 +739,10 @@ ul {
   flex-direction: column;
   gap: 1.5rem;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
 .empty-cart-msg {
   text-align: center;
   margin-top: 2rem;
@@ -646,30 +757,51 @@ ul {
   padding-bottom: 1rem;
   border-bottom: 2px dashed var(--color-border);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
 .cart-item img {
   width: 70px;
   height: 70px;
   object-fit: cover;
   border: 2px solid var(--color-foreground);
 }
+<<<<<<< HEAD
 .cart-item-info {
   flex: 1;
 }
+=======
+
+.cart-item-info {
+  flex: 1;
+}
+
+>>>>>>> 5bd2ab0 (Update website)
 .cart-item-info h4 {
   font-size: 1.1rem;
   margin-bottom: 0.25rem;
   font-weight: 700;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
 .cart-item-info p {
   font-weight: 700;
   color: var(--color-primary);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
 .cart-item-actions {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   margin-top: 0.5rem;
 }
+<<<<<<< HEAD
 .qty-btn {
   background: var(--color-background);
   border: 2px solid var(--color-foreground);
@@ -677,6 +809,18 @@ ul {
   font-weight: bold;
   cursor: pointer;
 }
+=======
+
+.qty-btn {
+  background: var(--color-background);
+  border: 2px solid var(--color-foreground);
+  width: 24px;
+  height: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+>>>>>>> 5bd2ab0 (Update website)
 .remove-item {
   background: var(--color-destructive);
   color: white;
@@ -687,6 +831,10 @@ ul {
   font-size: 0.8rem;
   margin-left: auto;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
 .remove-item:hover {
   opacity: 0.9;
 }
@@ -696,6 +844,10 @@ ul {
   border-top: 3px solid var(--color-foreground);
   background-color: white;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
 .cart-total {
   display: flex;
   justify-content: space-between;
@@ -704,6 +856,10 @@ ul {
   font-family: var(--font-heading);
   margin-bottom: 1rem;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
 .checkout-btn {
   width: 100%;
 }
@@ -713,6 +869,10 @@ ul {
   align-items: center;
   gap: 1rem;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
 .cart-toggle {
   background: var(--color-background);
   border: 2px solid var(--color-foreground);
@@ -726,10 +886,18 @@ ul {
   align-items: center;
   gap: 0.5rem;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
 .cart-toggle:hover {
   transform: translate(1px, 1px);
   box-shadow: 1px 1px 0 var(--color-foreground);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bd2ab0 (Update website)
 .cart-count {
   background: var(--color-accent);
   color: white;
@@ -737,3 +905,83 @@ ul {
   padding: 0.1rem 0.5rem;
   font-size: 0.9rem;
 }
+<<<<<<< HEAD
+=======
+
+/* Text Pages */
+.page-header {
+  padding: 6rem 5% 3rem;
+  text-align: center;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.page-header h1 {
+  font-size: 3rem;
+  color: var(--color-on-primary);
+}
+
+.page-content {
+  padding: 4rem 5% 8rem;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.125rem;
+}
+
+.page-content h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.page-content p {
+  margin-bottom: 1.5rem;
+}
+
+.faq-item {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 1rem;
+}
+
+.faq-item h3 {
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.contact-form-wrapper {
+  background-color: #fff;
+  border: 4px solid var(--color-foreground);
+  padding: 3rem;
+  box-shadow: 12px 12px 0 var(--color-secondary);
+}
+
+.contact-form-wrapper .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form-wrapper label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.contact-form-wrapper input,
+.contact-form-wrapper textarea {
+  width: 100%;
+  padding: 1rem;
+  font-family: var(--font-body);
+  border: 3px solid var(--color-foreground);
+  font-size: 1.125rem;
+}
+
+.contact-form-wrapper input:focus,
+.contact-form-wrapper textarea:focus {
+  outline: none;
+  background-color: var(--color-muted);
+}
+
+.contact-form-wrapper textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+>>>>>>> 5bd2ab0 (Update website)

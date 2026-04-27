@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>FAQ - PlantLand</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo"><a href="index.html">PlantLand.</a></div>
+    <ul class="nav-links">
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="index.html#features">Why Us</a></li>
+      <li><a href="index.html#care">Plant Care</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="cart-toggle" id="cart-toggle" aria-label="Open cart">
+        🛒 <span class="cart-count" id="cart-count">0</span>
+      </button>
+      <a href="shop.html" class="cta-button nav-cta">Get Started</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <h1>Frequently Asked Questions</h1>
+  </header>
+
+  <section class="page-content">
+    <div class="faq-item">
+      <h3>How do you ship live plants?</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante
+        dapibus diam. Sed nisi.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if my plant arrives damaged?</h3>
+      <p>Pellentesque ipsum. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in
+        vulputate at, tempus viverra turpis.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do you offer plant care advice?</h3>
+      <p>Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti
+        sociosqu ad litora torquent.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h2>PlantLand.</h2>
+        <p>Cool plants for hip people.</p>
+      </div>
+      <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="shipping.html">Shipping</a>
+        <a href="returns.html">Returns</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 PlantLand. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="close-cart" id="close-cart" aria-label="Close cart">✖</button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <p class="empty-cart-msg">Your cart is feeling a little empty.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cart-total-price">$0.00</span>
+      </div>
+      <button class="btn btn-primary checkout-btn" id="checkout-btn">Checkout</button>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
