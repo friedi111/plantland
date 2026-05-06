@@ -19,16 +19,17 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="logo"><a href="../index.html">PlantLand.</a></div>
-    <ul class="nav-links">
-      <li><a href="../shop.html">Shop</a></li>
-      <li><a href="../index.html#features">Why Us</a></li>
-      <li><a href="../index.html#care">Plant Care</a></li>
-    </ul>
     <div class="nav-actions">
+      <div class="nav-search-container">
+        <form action="../shop.html" method="get" class="nav-search-form">
+          <input type="text" name="search" placeholder="Find plants..." class="nav-search-input" aria-label="Search plants">
+          <button type="submit" class="nav-search-btn" aria-label="Search">🔍</button>
+        </form>
+      </div>
       <button class="cart-toggle" id="cart-toggle" aria-label="Open cart">
         🛒 <span class="cart-count" id="cart-count">0</span>
       </button>
-      <a href="../shop.html" class="cta-button nav-cta">Get Started</a>
+      <a href="../shop.html" class="cta-button nav-cta">Shop</a>
     </div>
   </nav>
 
@@ -36,7 +37,14 @@
   <section class="product-detail">
     <div class="product-gallery">
       <div class="product-image-main">
-        <img src="../assets/zz.png" alt="ZZ Plant" />
+        <button class="gallery-nav prev" aria-label="Previous image">←</button>
+        <img src="../assets/zz.png" alt="ZZ Plant" id="main-product-image" />
+        <button class="gallery-nav next" aria-label="Next image">→</button>
+      </div>
+      <div class="product-thumbnails">
+        <img src="../assets/zz.png" alt="ZZ Plant" class="thumbnail active" onclick="document.getElementById('main-product-image').src=this.src; document.querySelectorAll('.thumbnail').forEach(t=>t.classList.remove('active')); this.classList.add('active');" />
+        <img src="../assets/zz_closeup.png" alt="ZZ Plant Close Up" class="thumbnail" onclick="document.getElementById('main-product-image').src=this.src; document.querySelectorAll('.thumbnail').forEach(t=>t.classList.remove('active')); this.classList.add('active');" />
+        <img src="../assets/zz_angle.png" alt="ZZ Plant Alternate Angle" class="thumbnail" onclick="document.getElementById('main-product-image').src=this.src; document.querySelectorAll('.thumbnail').forEach(t=>t.classList.remove('active')); this.classList.add('active');" />
       </div>
     </div>
 

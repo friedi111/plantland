@@ -20,16 +20,17 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="logo"><a href="index.html">PlantLand.</a></div>
-    <ul class="nav-links">
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="index.html#features">Why Us</a></li>
-      <li><a href="index.html#care">Plant Care</a></li>
-    </ul>
     <div class="nav-actions">
+      <div class="nav-search-container">
+        <form action="shop.html" method="get" class="nav-search-form">
+          <input type="text" name="search" placeholder="Find plants..." class="nav-search-input" aria-label="Search plants">
+          <button type="submit" class="nav-search-btn" aria-label="Search">🔍</button>
+        </form>
+      </div>
       <button class="cart-toggle" id="cart-toggle" aria-label="Open cart">
         🛒 <span class="cart-count" id="cart-count">0</span>
       </button>
-      <a href="shop.html" class="cta-button nav-cta">Get Started</a>
+      <a href="shop.html" class="cta-button nav-cta">Shop</a>
     </div>
   </nav>
 
@@ -59,18 +60,24 @@
     </div>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon">✨</div>
-        <h3>High Quality</h3>
+        <div class="feature-card-header">
+          <span class="feature-icon">✨</span>
+          <h3>High Quality</h3>
+        </div>
         <p>Sourced from the best nurseries. Only healthy, thriving plants make the cut.</p>
       </div>
       <div class="feature-card offset">
-        <div class="feature-icon">🚚</div>
-        <h3>Reliable Delivery</h3>
+        <div class="feature-card-header">
+          <span class="feature-icon">🚚</span>
+          <h3>Reliable Delivery</h3>
+        </div>
         <p>Secure, climate-controlled packaging ensures your new leafy friend arrives safely.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🪴</div>
-        <h3>Curated Selection</h3>
+        <div class="feature-card-header">
+          <span class="feature-icon">🪴</span>
+          <h3>Curated Selection</h3>
+        </div>
         <p>From low-maintenance gems to rare tropicals, we've got the hip plants you crave.</p>
       </div>
     </div>

@@ -92,7 +92,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const baseDir = isSubPage ? '../' : '';
 
     if (cart.length === 0) {
-      cartItemsContainer.innerHTML = '<p class="empty-cart-msg">Your cart is feeling a little empty.</p>';
+      cartItemsContainer.innerHTML = `
+        <div class="empty-cart-container">
+          <p class="empty-cart-msg">Your cart is feeling a little empty.</p>
+          <a href="${baseDir}shop.html" class="btn btn-primary explore-shop-btn">Explore Shop</a>
+        </div>
+      `;
     } else {
       cart.forEach(item => {
         total += item.price * item.quantity;
@@ -125,7 +130,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    cartCountEl.textContent = count;
+    if (count > 0) {
+      cartCountEl.textContent = count;
+      cartCountEl.style.display = 'flex';
+    } else {
+      cartCountEl.textContent = '0';
+      cartCountEl.style.display = 'none';
+    }
+    
     cartTotalPriceEl.textContent = `$${total.toFixed(2)}`;
 
     // Update Shipping Progress
@@ -250,6 +262,154 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // --- SEARCH FUNCTIONALITY ---
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlParams.get('search');
+  
+  if (searchQuery) {
+    const searchLower = searchQuery.toLowerCase();
+    
+    // Auto-fill the search input
+    const searchInputs = document.querySelectorAll('.nav-search-input');
+    searchInputs.forEach(input => {
+      input.value = searchQuery;
+    });
+
+    // Filter plants if on a page with plant cards
+    const plantCards = document.querySelectorAll('.plant-card');
+    if (plantCards.length > 0) {
+      let foundAny = false;
+      plantCards.forEach(card => {
+        const title = card.querySelector('h3');
+        if (title && title.textContent.toLowerCase().includes(searchLower)) {
+          card.style.display = '';
+          foundAny = true;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Show a message if nothing found
+      const plantsGrid = document.querySelector('.plants-grid');
+      if (!foundAny && plantsGrid) {
+        const noResultsMsg = document.createElement('p');
+        noResultsMsg.className = 'no-results-msg';
+        noResultsMsg.style.gridColumn = '1 / -1';
+        noResultsMsg.style.textAlign = 'center';
+        noResultsMsg.style.fontSize = '1.25rem';
+        noResultsMsg.style.padding = '2rem 0';
+        noResultsMsg.textContent = `No plants found matching "${searchQuery}".`;
+        plantsGrid.appendChild(noResultsMsg);
+      }
+    }
+  }
+
+  // Mobile Search Toggle Logic
+  const searchBtn = document.querySelector('.nav-search-btn');
+  const searchForm = document.querySelector('.nav-search-form');
+  const searchInput = document.querySelector('.nav-search-input');
+  
+  if (searchBtn && searchForm && searchInput) {
+    searchBtn.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        if (!searchForm.classList.contains('active')) {
+          e.preventDefault();
+          searchForm.classList.add('active');
+          searchInput.focus();
+        } else if (searchInput.value.trim() === '') {
+          e.preventDefault();
+          searchForm.classList.remove('active');
+        }
+      }
+    });
+
+    // Close search form when clicking outside of it
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768 && searchForm.classList.contains('active')) {
+        if (!searchForm.contains(e.target)) {
+          searchForm.classList.remove('active');
+        }
+      }
+    });
+  }
+
+  // Product Gallery Arrows Logic
+  const productGallery = document.querySelector('.product-gallery');
+  if (productGallery) {
+    const mainImage = document.getElementById('main-product-image');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const prevBtn = document.querySelector('.gallery-nav.prev');
+    const nextBtn = document.querySelector('.gallery-nav.next');
+
+    let currentIndex = 0;
+
+    const updateGallery = (index) => {
+      thumbnails.forEach(t => t.classList.remove('active'));
+      thumbnails[index].classList.add('active');
+      mainImage.src = thumbnails[index].src;
+      currentIndex = index;
+    };
+
+    if (prevBtn && nextBtn && thumbnails.length > 0) {
+      prevBtn.addEventListener('click', () => {
+        let newIndex = currentIndex - 1;
+        if (newIndex < 0) newIndex = thumbnails.length - 1;
+        updateGallery(newIndex);
+      });
+
+      nextBtn.addEventListener('click', () => {
+        let newIndex = currentIndex + 1;
+        if (newIndex >= thumbnails.length) newIndex = 0;
+        updateGallery(newIndex);
+      });
+      
+      // Update currentIndex if a thumbnail is clicked directly
+      thumbnails.forEach((thumb, index) => {
+        thumb.addEventListener('click', () => {
+          currentIndex = index;
+        });
+      });
+    }
+  }
+  
+  if (searchQuery) {
+    const searchLower = searchQuery.toLowerCase();
+    
+    // Auto-fill the search input
+    const searchInputs = document.querySelectorAll('.nav-search-input');
+    searchInputs.forEach(input => {
+      input.value = searchQuery;
+    });
+
+    // Filter plants if on a page with plant cards
+    const plantCards = document.querySelectorAll('.plant-card');
+    if (plantCards.length > 0) {
+      let foundAny = false;
+      plantCards.forEach(card => {
+        const title = card.querySelector('h3');
+        if (title && title.textContent.toLowerCase().includes(searchLower)) {
+          card.style.display = '';
+          foundAny = true;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Show a message if nothing found
+      const plantsGrid = document.querySelector('.plants-grid');
+      if (!foundAny && plantsGrid) {
+        const noResultsMsg = document.createElement('p');
+        noResultsMsg.className = 'no-results-msg';
+        noResultsMsg.style.gridColumn = '1 / -1';
+        noResultsMsg.style.textAlign = 'center';
+        noResultsMsg.style.fontSize = '1.25rem';
+        noResultsMsg.style.padding = '2rem 0';
+        noResultsMsg.textContent = `No plants found matching "${searchQuery}".`;
+        plantsGrid.appendChild(noResultsMsg);
+      }
+    }
+  }
 
   // Initial render
   renderCart();
