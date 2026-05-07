@@ -352,13 +352,15 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (prevBtn && nextBtn && thumbnails.length > 0) {
-      prevBtn.addEventListener('click', () => {
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Don't trigger lightbox when clicking arrows
         let newIndex = currentIndex - 1;
         if (newIndex < 0) newIndex = thumbnails.length - 1;
         updateGallery(newIndex);
       });
 
-      nextBtn.addEventListener('click', () => {
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Don't trigger lightbox when clicking arrows
         let newIndex = currentIndex + 1;
         if (newIndex >= thumbnails.length) newIndex = 0;
         updateGallery(newIndex);
@@ -366,10 +368,71 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Update currentIndex if a thumbnail is clicked directly
       thumbnails.forEach((thumb, index) => {
+        // Overwrite any inline onclick and use the centralized logic
+        thumb.onclick = null; 
         thumb.addEventListener('click', () => {
-          currentIndex = index;
+          updateGallery(index);
         });
       });
+
+      // --- Swipe Support ---
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      productGallery.querySelector('.product-image-main').addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      productGallery.querySelector('.product-image-main').addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+
+      const handleSwipe = () => {
+        const threshold = 50;
+        if (touchEndX < touchStartX - threshold) {
+          // Swipe Left -> Next
+          let newIndex = currentIndex + 1;
+          if (newIndex >= thumbnails.length) newIndex = 0;
+          updateGallery(newIndex);
+        }
+        if (touchEndX > touchStartX + threshold) {
+          // Swipe Right -> Prev
+          let newIndex = currentIndex - 1;
+          if (newIndex < 0) newIndex = thumbnails.length - 1;
+          updateGallery(newIndex);
+        }
+      };
+
+      // --- Lightbox Support ---
+      const lightbox = document.getElementById('image-lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const closeLightbox = document.getElementById('close-lightbox');
+
+      if (lightbox && lightboxImg && closeLightbox) {
+        mainImage.addEventListener('click', () => {
+          lightboxImg.src = mainImage.src;
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+
+        const hideLightbox = () => {
+          lightbox.classList.remove('active');
+          document.body.style.overflow = '';
+        };
+
+        closeLightbox.addEventListener('click', hideLightbox);
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) hideLightbox();
+        });
+        
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            hideLightbox();
+          }
+        });
+      }
     }
   }
   

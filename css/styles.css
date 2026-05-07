@@ -1195,6 +1195,7 @@ ul {
   height: 100%;
   object-fit: cover;
   transition: transform 0.8s ease;
+  cursor: zoom-in;
 }
 
 .product-image-main:hover img {
@@ -1436,5 +1437,69 @@ ul {
 
   .care-tips {
     padding: 1.5rem;
+  }
+}
+
+/* Lightbox Modal */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  border: 4px solid #fff;
+}
+
+.close-lightbox {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.close-lightbox:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .close-lightbox {
+    top: -50px;
+    right: 10px;
   }
 }

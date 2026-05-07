@@ -42,9 +42,9 @@
         <button class="gallery-nav next" aria-label="Next image">→</button>
       </div>
       <div class="product-thumbnails">
-        <img src="../assets/pothos.png" alt="Golden Pothos" class="thumbnail active" onclick="document.getElementById('main-product-image').src=this.src; document.querySelectorAll('.thumbnail').forEach(t=>t.classList.remove('active')); this.classList.add('active');" />
-        <img src="../assets/pothos_closeup.png" alt="Golden Pothos Close Up" class="thumbnail" onclick="document.getElementById('main-product-image').src=this.src; document.querySelectorAll('.thumbnail').forEach(t=>t.classList.remove('active')); this.classList.add('active');" />
-        <img src="../assets/pothos_angle.png" alt="Golden Pothos Alternate Angle" class="thumbnail" onclick="document.getElementById('main-product-image').src=this.src; document.querySelectorAll('.thumbnail').forEach(t=>t.classList.remove('active')); this.classList.add('active');" />
+        <img src="../assets/pothos.png" alt="Golden Pothos" class="thumbnail active" />
+        <img src="../assets/pothos_closeup.png" alt="Golden Pothos Close Up" class="thumbnail" />
+        <img src="../assets/pothos_angle.png" alt="Golden Pothos Alternate Angle" class="thumbnail" />
       </div>
     </div>
 
@@ -142,6 +142,14 @@
   </aside>
 
   <script src="../js/script.js"></script>
+
+  <!-- Lightbox Modal -->
+  <div id="image-lightbox" class="lightbox">
+    <div class="lightbox-content">
+      <button id="close-lightbox" class="close-lightbox" aria-label="Close image">✖</button>
+      <img id="lightbox-img" src="" alt="Full size image">
+    </div>
+  </div>
 </body>
 
 </html>
